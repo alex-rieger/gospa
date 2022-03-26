@@ -9,6 +9,7 @@ import (
 
 const templatesDir = "./web/templates/"
 const templatesSuffix = ".gohtml"
+const sharedConfigPath = "./configs/shared.json"
 
 func (app *application) sendInternalServerError(w http.ResponseWriter, err error) {
 	trace := fmt.Sprintf("%s\n%s", err.Error(), debug.Stack())
@@ -28,7 +29,11 @@ func (app *application) render(w http.ResponseWriter, r *http.Request, name stri
 
 	buf := new(bytes.Buffer)
 
-	err := ts.Execute(buf, td)
+	err := ts.Execute(buf, renderData{
+		TemplateData: td,
+		I18n:         app.i18n,
+		Config:       app.config,
+	})
 	if err != nil {
 		app.sendInternalServerError(w, err)
 	}

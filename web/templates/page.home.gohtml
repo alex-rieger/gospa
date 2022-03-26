@@ -1,9 +1,16 @@
-{{ template "base" }}
+{{ template "base" . }}
 
 {{ define "title"}}homepage{{ end }}
 
 {{ define "main" }}
-    {{ vite }}
+
     <div id="app"></div>
+
+    {{ vite }}
     {{ asset "src/main.ts" }}
+
+    <script>
+        window.$cfg = Object.freeze({{ .Config }})
+    </script>
+   
 {{ end }}

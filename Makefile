@@ -77,6 +77,9 @@ ci: lint-reports test-reports ## Executes lint and test and generates reports
 build-view: ## Builds the UI assets
 	npm run build --prefix $(VIEW_PREFIX)
 
+vite: ## Runs vite dev server
+	npm run dev --prefix $(VIEW_PREFIX)
+
 run-view: ## Runs vite dev server
 	npm run dev --prefix $(VIEW_PREFIX)
 

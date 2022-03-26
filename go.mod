@@ -9,8 +9,12 @@ require (
 )
 
 require (
+	github.com/nicksnyder/go-i18n/v2 v2.2.0 // indirect
+	golang.org/x/text v0.3.7 // indirect
+)
+
+require (
 	github.com/alex-rieger/govite v0.0.0-20220325165528-8d24ce4c8f3f
-	github.com/stretchr/testify v1.7.1 // indirect
 	go.uber.org/atomic v1.7.0 // indirect
 	go.uber.org/multierr v1.6.0 // indirect
 )

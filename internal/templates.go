@@ -3,9 +3,18 @@ package internal
 import (
 	"html/template"
 	"path/filepath"
+
+	"github.com/nicksnyder/go-i18n/v2/i18n"
 )
 
-type templateData struct{}
+type templateData struct {
+}
+
+type renderData struct {
+	TemplateData *templateData
+	I18n         *i18n.Bundle
+	Config       *sharedConfig
+}
 
 func newTemplateCache(dir string, functions template.FuncMap) (map[string]*template.Template, error) {
 	cache := map[string]*template.Template{}
