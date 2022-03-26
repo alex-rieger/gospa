@@ -1,0 +1,9 @@
+{{ template "base" }}
+
+{{ define "title"}}homepage{{ end }}
+
+{{ define "main" }}
+    {{ vite }}
+    <div id="app"></div>
+    {{ asset "src/main.ts" }}
+{{ end }}
